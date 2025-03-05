@@ -1,35 +1,27 @@
 import { useSyncExternalStore } from "react";
 import { useFlagster } from "../provider";
 
-type Flags = Record<string, boolean>;
-
-export const useFlags = <K extends keyof Flags = keyof Flags>(
-	keys: K[] = [],
-): Record<K, boolean> | Flags => {
+export const useFlags = <K extends string>(
+	names: K[] = [],
+): Record<K, boolean> | Record<string, boolean> => {
 	const flagster = useFlagster();
+	const emptyNames = names.length === 0;
 
 	const flags = useSyncExternalStore(
-		(callback) =>
+		(triggerChange) =>
 			flagster.onChange((oldFlags, newFlags) => {
-				const emptyKeys = keys.length === 0;
-				const someFlagsChanged = keys.some(
-					(key) => oldFlags[key] !== newFlags[key],
+				const flagsDiffers = names.some(
+					(name) => oldFlags[name] !== newFlags[name],
 				);
 
-				if (emptyKeys || someFlagsChanged) {
-					callback();
+				if (emptyNames || flagsDiffers) {
+					triggerChange();
 				}
 			}),
-		flagster.getflags.bind(flagster),
+		() => flagster.getFlags(),
 	);
 
-	if (keys.length === 0) return flags;
-
-	return keys.reduce(
-		(acc, key) => {
-			acc[key] = flags[key];
-			return acc;
-		},
-		{} as Record<K, boolean>,
-	);
+	return emptyNames
+		? flags
+		: Object.fromEntries(names.map((key) => [key, flags[key]]));
 };
