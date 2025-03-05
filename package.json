@@ -1,0 +1,31 @@
+{
+    "name": "flagster-react",
+    "version": "1.0.0",
+    "license": "MIT",
+    "private": true,
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "prepare": "yarn build",
+        "test": "vitest"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/react": "^16.2.0",
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "happy-dom": "^17.1.9",
+        "react-dom": "^19.0.0",
+        "typescript": "^5.8.2",
+        "vitest": "^3.0.7"
+    },
+    "dependencies": {
+        "flagster-js": "file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz",
+        "react": "^19.0.0"
+    }
+}
