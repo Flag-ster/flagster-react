@@ -1,4 +1,4 @@
-import { Config, Flagster } from "flagster-js/dist/src/flagster";
+import { Config, Flagster } from "flagster-js";
 import { createContext, FC, PropsWithChildren, useContext } from "react";
 
 const FlagsterContext = createContext<Flagster | null>(null);
