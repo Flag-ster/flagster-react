@@ -10,8 +10,18 @@ export class FlagsterTester {
 		},
 	};
 
+	private defaultFlags: Record<string, boolean> = {
+		flag1: true,
+		flag2: false,
+	};
+
 	withApi(api: IApi) {
 		this.api = api;
+		return this;
+	}
+
+	withDefaultFlags(defaultFlags: Record<string, boolean>) {
+		this.defaultFlags = defaultFlags;
 		return this;
 	}
 
@@ -37,10 +47,7 @@ export class FlagsterTester {
 					flagster={this.flagster}
 					config={{
 						environment: "test",
-						defaultFlags: {
-							flag1: true,
-							flag2: false,
-						},
+						defaultFlags: this.defaultFlags,
 					}}
 				>
 					{props.children}

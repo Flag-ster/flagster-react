@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import { useFlagster } from "./provider";
+import { useFlagster } from "../provider";
 
 type Flags = Record<string, boolean>;
 

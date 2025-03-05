@@ -551,7 +551,7 @@ expect-type@^1.1.0:
 
 "flagster-js@file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz":
   version "1.0.0"
-  resolved "file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz#915131dc20444eb58c55671a741a16636b117901"
+  resolved "file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz#5802f6af9be180fd6578dfd88044a64ebfad5282"
 
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"

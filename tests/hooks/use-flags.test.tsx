@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { useFlags } from "../src/use-flags";
-import { FlagsterTester } from "./flagster.tester";
+import { useFlags } from "../../src/hooks/use-flags";
+import { FlagsterTester } from "../flagster.tester";
 
 describe("useFlags", () => {
 	test("retrieve all flags", async () => {
