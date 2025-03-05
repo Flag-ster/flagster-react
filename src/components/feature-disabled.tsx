@@ -9,7 +9,5 @@ export const FeatureDisabled: FC<PropsWithChildren<Props>> = ({
 	name,
 	children,
 }) => {
-	const flags = useFlags([name]);
-	if (flags[name]) return null;
-	return children;
+	return useFlags([name])[name] ? null : children;
 };
