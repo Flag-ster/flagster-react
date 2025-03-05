@@ -36,4 +36,29 @@ describe("FeatureDisabled", () => {
 
 		expect(component.queryByText("Hello World")).toBeFalsy();
 	});
+
+	test("rerender when flag change", async () => {
+		const tester = new FlagsterTester()
+			.withDefaultFlags({
+				flag1: true,
+			})
+			.withApi({
+				getFlags: async () => {
+					return {
+						flag1: false,
+					};
+				},
+			});
+
+		const component = render(
+			<FeatureDisabled name="flag1">Hello World</FeatureDisabled>,
+			{
+				wrapper: tester.wrapper,
+			},
+		);
+
+		await tester.waitForInit();
+
+		expect(component.queryByText("Hello World")).toBeTruthy();
+	});
 });

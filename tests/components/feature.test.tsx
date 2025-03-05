@@ -40,4 +40,33 @@ describe("Feature", () => {
 
 		expect(component.queryByText("disabled")).toBeTruthy();
 	});
+
+	test("rerender when flag change", async () => {
+		const tester = new FlagsterTester()
+			.withDefaultFlags({
+				flag1: true,
+			})
+			.withApi({
+				getFlags: async () => {
+					return {
+						flag1: false,
+					};
+				},
+			});
+
+		const component = render(
+			<Feature name="flag1">
+				{(isEnabled) => {
+					return isEnabled ? "enabled" : "disabled";
+				}}
+			</Feature>,
+			{
+				wrapper: tester.wrapper,
+			},
+		);
+
+		await tester.waitForInit();
+
+		expect(component.queryByText("disabled")).toBeTruthy();
+	});
 });

@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import { useFlags } from "../hooks/use-flags";
+import { useFlag } from "../hooks/use-flag";
 
 type Props = {
 	name: string;
@@ -9,5 +9,5 @@ export const FeatureDisabled: FC<PropsWithChildren<Props>> = ({
 	name,
 	children,
 }) => {
-	return useFlags([name])[name] ? null : children;
+	return useFlag(name) ? null : children;
 };

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useFlags } from "../hooks/use-flags";
+import { useFlag } from "../hooks/use-flag";
 
 type Props = {
 	name: string;
@@ -7,6 +7,5 @@ type Props = {
 };
 
 export const Feature: FC<Props> = ({ name, children }) => {
-	const flags = useFlags([name]);
-	return children(flags[name]);
+	return children(useFlag(name));
 };
