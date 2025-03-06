@@ -2,12 +2,10 @@
 	"name": "flagster-react",
 	"version": "1.0.0",
 	"license": "MIT",
-	"private": true,
+	"private": false,
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "rm -rf ./dist && tsc --project tsconfig.build.json",
 		"prepare": "yarn build",
