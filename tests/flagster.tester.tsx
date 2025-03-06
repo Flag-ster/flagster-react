@@ -1,7 +1,6 @@
-import { Flagster } from "flagster-js";
+import { Flagster, IApi } from "flagster";
 import { act, ReactNode } from "react";
 import { FlagsterProvider } from "../src/provider";
-import { IApi } from "flagster-js";
 
 export class FlagsterTester {
 	private api: IApi = {

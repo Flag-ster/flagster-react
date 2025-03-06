@@ -549,9 +549,10 @@ expect-type@^1.1.0:
   resolved "https://registry.yarnpkg.com/expect-type/-/expect-type-1.2.0.tgz#b52a0a1117260f5a8dcf33aef66365be18c13415"
   integrity sha512-80F22aiJ3GLyVnS/B3HzgR6RelZVumzj9jkL0Rhz4h0xYbNW9PjlQz5h3J/SShErbXBc295vseR4/MIbVmUbeA==
 
-"flagster-js@file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz":
+flagster@^1.0.0:
   version "1.0.0"
-  resolved "file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz#f48516a1dd599f41e838f4e6513fc054741c3759"
+  resolved "https://registry.yarnpkg.com/flagster/-/flagster-1.0.0.tgz#53dabb8cb94bde4b12c9e9f4f9f8f51f9e127415"
+  integrity sha512-7Qswy/BaRlQE+mGAoHvO6IXgIrj5IL3nqOkDkUhUCtj/53rb8+6iTOezpTHuRpYjgPjyBcjlMpLy/NLcRX7isw==
 
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"

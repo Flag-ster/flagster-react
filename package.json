@@ -5,7 +5,9 @@
 	"private": true,
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "rm -rf ./dist && tsc --project tsconfig.build.json",
 		"prepare": "yarn build",
@@ -23,7 +25,7 @@
 		"vitest": "^3.0.7"
 	},
 	"dependencies": {
-		"flagster-js": "file:/Users/maximeleduc/personal/flagster-js/flagster-js-v1.0.0.tgz",
+		"flagster": "^1.0.0",
 		"react": "^19.0.0"
 	}
 }
