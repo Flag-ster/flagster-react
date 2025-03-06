@@ -1,8 +1,10 @@
 import { Flagster, IApi } from "flagster";
-import { act, ReactNode } from "react";
+import { act, ReactNode, StrictMode } from "react";
 import { FlagsterProvider } from "../src/provider";
 
 export class FlagsterTester {
+	private isStrictMode = false;
+
 	private api: IApi = {
 		getFlags: async () => {
 			return {};
@@ -41,7 +43,7 @@ export class FlagsterTester {
 
 	get wrapper() {
 		return (props: { children: ReactNode }) => {
-			return (
+			const Provider = () => (
 				<FlagsterProvider
 					flagster={this.flagster}
 					config={{
@@ -52,6 +54,21 @@ export class FlagsterTester {
 					{props.children}
 				</FlagsterProvider>
 			);
+
+			if (this.isStrictMode) {
+				return (
+					<StrictMode>
+						<Provider />
+					</StrictMode>
+				);
+			}
+
+			return <Provider />;
 		};
+	}
+
+	strictMode() {
+		this.isStrictMode = true;
+		return this;
 	}
 }

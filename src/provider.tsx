@@ -9,7 +9,7 @@ export const FlagsterProvider: FC<
 		config: Config;
 	}>
 > = ({ flagster, config, children }) => {
-	flagster.init(config);
+	if (!flagster.isInit()) flagster.init(config);
 
 	return (
 		<FlagsterContext.Provider value={flagster}>
