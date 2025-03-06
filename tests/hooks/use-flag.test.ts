@@ -65,4 +65,16 @@ describe("useFlag", () => {
 
 		expect(renderCount).toBe(1);
 	});
+
+	test("return false when flag is not found", () => {
+		const tester = new FlagsterTester().withDefaultFlags({
+			flag1: true,
+		});
+
+		const hook = renderHook(() => useFlag("flag2"), {
+			wrapper: tester.wrapper,
+		});
+
+		expect(hook.result.current).toBe(false);
+	});
 });

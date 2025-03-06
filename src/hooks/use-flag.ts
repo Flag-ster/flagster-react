@@ -14,5 +14,5 @@ export const useFlag = (name: string) => {
 		() => flagster.getFlags(),
 	);
 
-	return flags[name];
+	return !!flags[name];
 };

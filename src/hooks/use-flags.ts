@@ -14,14 +14,12 @@ export const useFlags = <K extends string>(
 					(name) => oldFlags[name] !== newFlags[name],
 				);
 
-				if (emptyNames || flagsDiffers) {
-					triggerChange();
-				}
+				if (emptyNames || flagsDiffers) triggerChange();
 			}),
 		() => flagster.getFlags(),
 	);
 
 	return emptyNames
 		? flags
-		: Object.fromEntries(names.map((key) => [key, flags[key]]));
+		: Object.fromEntries(names.map((key) => [key, !!flags[key]]));
 };

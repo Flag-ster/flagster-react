@@ -87,4 +87,18 @@ describe("useFlags", () => {
 			expect(renderCount).toBe(expectedRenderCount);
 		},
 	);
+
+	test("false is returned when flag does not exist", async () => {
+		const tester = new FlagsterTester();
+
+		const hook = renderHook(() => useFlags(["flag3"]), {
+			wrapper: tester.wrapper,
+		});
+
+		await waitFor(() => {
+			expect(hook.result.current).toEqual({
+				flag3: false,
+			});
+		});
+	});
 });
