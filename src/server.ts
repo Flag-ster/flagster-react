@@ -1,0 +1,1 @@
+export { createFlagsterSSR } from "flagster";

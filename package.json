@@ -6,6 +6,16 @@
     "repository": "https://github.com/Flag-ster/flagster-react",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./server": {
+            "import": "./dist/server.js",
+            "types": "./dist/server.d.ts"
+        }
+    },
     "files": [
         "dist"
     ],
@@ -26,7 +36,7 @@
         "vitest": "^3.0.7"
     },
     "dependencies": {
-        "flagster": "1.0.2",
+        "flagster": "1.0.3",
         "react": "^19.0.0"
     }
 }
