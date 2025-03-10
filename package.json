@@ -3,6 +3,7 @@
     "version": "1.0.1",
     "license": "MIT",
     "private": false,
+    "repository": "https://github.com/Flag-ster/flagster-react",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
