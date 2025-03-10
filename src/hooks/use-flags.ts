@@ -17,6 +17,7 @@ export const useFlags = <K extends string>(
 				if (emptyNames || flagsDiffers) triggerChange();
 			}),
 		() => flagster.getFlags(),
+		() => flagster.getFlags(),
 	);
 
 	return emptyNames

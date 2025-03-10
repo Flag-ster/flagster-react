@@ -12,6 +12,7 @@ export const useFlag = (name: string) => {
 				}
 			}),
 		() => flagster.getFlags(),
+		() => flagster.getFlags(),
 	);
 
 	return !!flags[name];
