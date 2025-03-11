@@ -1,6 +1,6 @@
 {
 	"name": "flagster-react",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"license": "MIT",
 	"private": false,
 	"repository": "https://github.com/Flag-ster/flagster-react",
@@ -16,7 +16,9 @@
 			"types": "./dist/server.d.ts"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "rm -rf ./dist && tsc --project tsconfig.build.json",
 		"prepare": "yarn build && yarn test --run",
