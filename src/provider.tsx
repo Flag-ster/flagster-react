@@ -1,15 +1,37 @@
-import { Config, Flagster } from "flagster";
+import { Config, Flagster, FlagsterState } from "flagster";
 import { createContext, FC, PropsWithChildren, useContext } from "react";
 
 const FlagsterContext = createContext<Flagster | null>(null);
 
-export const FlagsterProvider: FC<
-	PropsWithChildren<{
-		flagster: Flagster;
-		config: Config;
-	}>
-> = ({ flagster, config, children }) => {
-	if (!flagster.isInit()) flagster.init(config);
+type PropsBase = {
+	flagster: Flagster;
+};
+
+type WithConfig = PropsBase & {
+	config: Config;
+	serverState?: never;
+};
+
+type WithServerState = PropsBase & {
+	serverState: FlagsterState;
+	config?: never;
+};
+
+type Props = WithConfig | WithServerState;
+
+export const FlagsterProvider: FC<PropsWithChildren<Props>> = ({
+	flagster,
+	config,
+	serverState,
+	children,
+}) => {
+	if (flagster.canInit() && config) {
+		flagster.init(config);
+	}
+
+	if (serverState) {
+		flagster.setState(serverState);
+	}
 
 	return (
 		<FlagsterContext.Provider value={flagster}>

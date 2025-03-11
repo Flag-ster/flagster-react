@@ -4,6 +4,7 @@ import { FlagsterProvider } from "../src/provider";
 
 export class FlagsterTester {
 	private isStrictMode = false;
+	private instance: Flagster | null = null;
 
 	private api: IApi = {
 		getFlags: async () => {
@@ -32,13 +33,16 @@ export class FlagsterTester {
 		});
 	}
 
-	private get flagster() {
-		return new Flagster(this.api, {
-			save() {},
-			get() {
-				return {};
-			},
-		});
+	get flagster() {
+		if (!this.instance)
+			this.instance = new Flagster(this.api, {
+				save() {},
+				get() {
+					return {};
+				},
+			});
+
+		return this.instance;
 	}
 
 	get wrapper() {
