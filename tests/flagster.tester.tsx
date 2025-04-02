@@ -1,17 +1,46 @@
-import { Flagster, IApi } from "flagster";
+import {
+	FlagsStorage,
+	Flagster,
+	IApi,
+	IdentityGenerator,
+	IdentityStorage,
+} from "flagster";
 import { act, ReactNode, StrictMode } from "react";
 import { FlagsterProvider } from "../src/provider";
+
+class EmptyFlagsStorage implements FlagsStorage {
+	get() {
+		return {};
+	}
+
+	async save() {}
+}
+
+class EmptyApi implements IApi {
+	async getFlags() {
+		return {};
+	}
+}
+
+class DummyIdentityGenerator implements IdentityGenerator {
+	generate() {
+		return "dummy";
+	}
+}
+
+class EmptyIdentityStorage implements IdentityStorage {
+	get() {
+		return undefined;
+	}
+
+	async save() {}
+}
 
 export class FlagsterTester {
 	private isStrictMode = false;
 	private instance: Flagster | null = null;
 
-	private api: IApi = {
-		getFlags: async () => {
-			return {};
-		},
-	};
-
+	private api: IApi = new EmptyApi();
 	private defaultFlags: Record<string, boolean> = {
 		flag1: true,
 		flag2: false,
@@ -35,12 +64,12 @@ export class FlagsterTester {
 
 	get flagster() {
 		if (!this.instance)
-			this.instance = new Flagster(this.api, {
-				save() {},
-				get() {
-					return {};
-				},
-			});
+			this.instance = new Flagster(
+				this.api,
+				new EmptyFlagsStorage(),
+				new DummyIdentityGenerator(),
+				new EmptyIdentityStorage(),
+			);
 
 		return this.instance;
 	}

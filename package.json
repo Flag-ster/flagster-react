@@ -36,7 +36,7 @@
 		"vitest": "^3.0.7"
 	},
 	"dependencies": {
-		"flagster": "1.0.4",
+		"flagster": "^1.0.6",
 		"react": "^19.0.0"
 	}
 }
