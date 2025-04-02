@@ -1,1 +1,1 @@
-export { createFlagsterSSR } from "flagster";
+export { createFlagsterSSR, identityGenerator } from "flagster";

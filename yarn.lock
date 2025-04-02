@@ -549,10 +549,10 @@ expect-type@^1.1.0:
   resolved "https://registry.yarnpkg.com/expect-type/-/expect-type-1.2.0.tgz#b52a0a1117260f5a8dcf33aef66365be18c13415"
   integrity sha512-80F22aiJ3GLyVnS/B3HzgR6RelZVumzj9jkL0Rhz4h0xYbNW9PjlQz5h3J/SShErbXBc295vseR4/MIbVmUbeA==
 
-flagster@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/flagster/-/flagster-1.0.6.tgz#56ef09d1f53a2162fee748c5799fda846893fbdc"
-  integrity sha512-KdMmbop8e8X4lLQaCkSr3WUbYJ3rLN7SWnNhgtyeGFXjxyOlOhFnwtrtA8BAQrqoH2PL+74EmTKQzzDE8ekS7w==
+flagster@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/flagster/-/flagster-1.0.7.tgz#a84abe405d7495239421da97d6b0578f4674fc45"
+  integrity sha512-Tixf/RLMVRA3RkVPnYLh+8Yg5xLDKzuEB7XOCfQBWcqQBhr5ncMJ7PGIjJuUhnMpnYticXViwZNLFbBu965ssg==
 
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
